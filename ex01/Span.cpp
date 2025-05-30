@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:04:27 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/29 19:59:05 by esellier         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:18:52 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 
 Span::Span()
 {
-    std::cout << BLUE << "Default constructor called\n" << RESET;
+    std::cout << PURPLE << "Default constructor called\n" << RESET;
 }
 
 Span::Span(unsigned int value) : _N(value)
 {
-    std::cout << BLUE << "Value constructor called\n" << RESET;    
+    std::cout << PURPLE << "Value constructor called\n" << RESET;    
 }
 
 Span::Span(Span const& other)
 {
     *this = other;
-    std::cout << BLUE << "Copie constructor called\n" << RESET;    
+    std::cout << PURPLE << "Copie constructor called\n" << RESET;    
 }
 
 Span::~Span()
 {
-    std::cout << BLUE << "Default destructor called\n" << RESET;    
+    std::cout << PURPLE << "Default destructor called\n" << RESET;    
 }
 
 Span    Span::operator=(Span const& other)
@@ -46,13 +46,29 @@ Span    Span::operator=(Span const& other)
     return *this;
 }
 
-void    Span::addNumber(unsigned int value)
+void    Span::addNumber(const unsigned int value)
 {
     if (_contenair.size() < _N)
         _contenair.push_back(value);
     else
         throw std::length_error("The contenair is full, cannot add a new value");
     return;
+}
+
+void    Span::addRangeNumber(const unsigned int value)
+{
+    std::vector<int> array;
+    for (unsigned int i = 0; i < value; i++)
+        array.push_back(i);
+    
+    std::vector<int>::iterator begin = array.begin();
+    std::vector<int>::iterator end = array.end();
+
+    while (begin < end)
+    {
+        addNumber(*begin);
+        begin++;
+    }
 }
 
 unsigned int    Span::shortestSpan()
@@ -64,7 +80,7 @@ unsigned int    Span::shortestSpan()
     {
         sort(_contenair.begin(), _contenair.end());
         result = _contenair[1] - _contenair[0];
-        for (size_t i = 1; i < _contenair.size(); i++)
+        for (size_t i = 1; i < _contenair.size() - 1; i++)
         {
             if (_contenair[i + 1] - _contenair[i] < result)
             result =  _contenair[i + 1] - _contenair[i];
@@ -84,6 +100,11 @@ unsigned int    Span::longestSpan()
 
         itmin = std::min_element(_contenair.begin(), _contenair.end());
         itmax = std::max_element(_contenair.begin(), _contenair.end());
-        return (*itmax - *itmin); //verifier qu'il renvoie bien un int
+        return (*itmax - *itmin);
     }
+}
+
+int Span::getContenair(int value)const
+{
+    return _contenair.at(value);
 }
