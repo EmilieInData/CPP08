@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:25:59 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/30 19:44:57 by esellier         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:44:14 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ class MutantStack : public std::stack<T>
         MutantStack();
         ~MutantStack();
         MutantStack(const MutantStack& other);
-        
-        typedef typename std::stack<T>::container_type::iterator it;
-
         MutantStack<T>  operator=(const MutantStack& other);
+        
+        typedef typename std::stack<T>::container_type::iterator it;        
         it  begin();
         it  end();
 };
@@ -33,3 +32,6 @@ class MutantStack : public std::stack<T>
 #include "MutantStack.tpp"
 
 #endif
+
+//"container_type" is a protected type in stack class who indicate the
+//contener type of the underlying container, here is "std::deque<T>"

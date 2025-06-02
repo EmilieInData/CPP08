@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 16:38:46 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/30 14:22:05 by esellier         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:25:13 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@ class Span
         
         Span                operator=(Span const& other);
         void                addNumber(const unsigned int value);
-        void                addRangeNumber(const unsigned int value);
         unsigned int        shortestSpan();
         unsigned int        longestSpan();
         int                 getContenair(int value)const;
+        
+        template<typename Iterator>
+        void                addRangeNumber(Iterator begin, Iterator end)
+        {
+            for (Iterator it = begin; it != end; it++)
+                this->addNumber(*it);
+        }
 
     private:
         Span();

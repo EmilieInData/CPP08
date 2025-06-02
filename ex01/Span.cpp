@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:04:27 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/30 14:18:52 by esellier         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:25:21 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,6 @@ void    Span::addNumber(const unsigned int value)
     return;
 }
 
-void    Span::addRangeNumber(const unsigned int value)
-{
-    std::vector<int> array;
-    for (unsigned int i = 0; i < value; i++)
-        array.push_back(i);
-    
-    std::vector<int>::iterator begin = array.begin();
-    std::vector<int>::iterator end = array.end();
-
-    while (begin < end)
-    {
-        addNumber(*begin);
-        begin++;
-    }
-}
-
 unsigned int    Span::shortestSpan()
 {
     int result;
@@ -108,3 +92,6 @@ int Span::getContenair(int value)const
 {
     return _contenair.at(value);
 }
+
+//"at" throw an exception "out_of_range" if we are out of bounds
+//no need to check manually limits

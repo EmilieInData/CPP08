@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:49:17 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/30 19:42:40 by esellier         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:36:45 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,6 @@ typename MutantStack<T>::it MutantStack<T>::end()
 {
     return (this->c.end());
 }
+
+//"c" is the name of the deque contenair inside the stack class;
+//it's inherit here, it's why we cannot see it in my class

@@ -6,7 +6,7 @@
 /*   By: esellier <esellier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 16:11:25 by esellier          #+#    #+#             */
-/*   Updated: 2025/05/30 14:24:08 by esellier         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:28:45 by esellier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,17 @@ int main()
         std::cout << GREEN << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl << RESET;
 
-        // sp.addRangeNumber(10000);
+        // //creation of a contener to try the optimized
+        // //fonction addRangeNumber
+        
+        // unsigned int value = 10000;
+        // std::vector<int> array;
+        // for (unsigned int i = 0; i < value; i++)
+        //     array.push_back(i);
+        
+        // std::vector<int>::iterator begin = array.begin();
+        // std::vector<int>::iterator end = array.end();
+        // sp.addRangeNumber(begin, end);
 
         // std::cout << PURPLE << "Contenair's values:\n";
         // for (int i = 0; i < 10005; i++)
